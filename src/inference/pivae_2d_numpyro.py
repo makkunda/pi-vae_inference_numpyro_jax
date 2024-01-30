@@ -46,7 +46,7 @@ class pivae_numpyro_inference:
 
 		sigma = numpyro.sample("sigma", npdist.HalfNormal(0.025))
 
-		y = numpyro.sample("y", npdist.Normal(f[obs_idx], sigma), obs=y)
+		y = numpyro.sample("y", npdist.Normal(y_hat[obs_idx], sigma), obs=y)
 
 	def run_mcmc_vae(rng_key, numpyro_model, args, verbose=True):
 	    start = time.time()
